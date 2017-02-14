@@ -1,5 +1,5 @@
   import React, { Component } from 'react';
-
+  import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
   class Card extends Component {
     render() {
         var bgUrl = (this.props.hidden)
@@ -8,7 +8,9 @@
         var cardStyle = {backgroundImage: bgUrl};
 
         return (
-            <div className='card' style={cardStyle}/>
+            <ReactCSSTransitionGroup transitionName="example" transitionAppear={true} transitionAppearTimeout={1000} transitionEnterTimeout={1000} transitionLeaveTimeout={1000}>
+                <div className='card' style={cardStyle}/>
+            </ReactCSSTransitionGroup>
         );      
     }
   }

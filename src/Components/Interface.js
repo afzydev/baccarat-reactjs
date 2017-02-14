@@ -15,7 +15,21 @@
 
                 </div>
                 <br/>
-
+                
+                <h3>Who will win ? </h3>
+                <div className="btn-group btn-group-justified" role="group" aria-label="score">
+                  <div className="btn-group" role="group">
+                      <button onClick={this.props.playerwager} type="button" className="btn btn-default">Player</button>
+                  </div>
+                  <div className="btn-group" role="group">
+                      <button onClick={this.props.tiewager} type="button" className="btn btn-default">Tie</button>
+                  </div>
+                  <div className="btn-group" role="group">
+                      <button onClick={this.props.bankerwager} type="button" className="btn btn-default">Banker</button>
+                  </div>
+                </div>
+                <br/>
+                
                 <div className="btn-group btn-group-justified" role="group" aria-label="game">
                     <div className="btn-group" role="group">
                         {/* received as props to the Interface component the handleDeal function is now bound to the onClick event */}
@@ -35,7 +49,8 @@
   }
 
 Interface.defaultProps = {
-  status: 'new'
+    status: 'new'
+
 };
 
   export default Interface;

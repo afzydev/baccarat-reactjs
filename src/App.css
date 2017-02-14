@@ -18,7 +18,58 @@
   font-size: large;
 }
 
+.example-enter {
+  opacity: 0.01;
+  transform: rotateX(180deg);
+  position: absolute;
+  animation: roll 2s infinite;
+  transform: rotate(30deg);
+  //top: -2em;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  animation: roll 2s infinite;
+  transform: rotate(30deg);
+}
+
+.example-leave {
+  opacity: 1;
+  animation: roll 2s infinite;
+  transform: rotate(30deg);
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+  animation: roll 2s infinite;
+  transform: rotate(30deg);
+}
+
+.example-appear {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+  animation: roll 2s infinite;
+  transform: rotate(30deg);
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  animation: roll 2s infinite;
+  transform: rotate(30deg);
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@keyframes roll {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

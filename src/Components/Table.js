@@ -10,11 +10,15 @@ class Table extends Component {
           var shuffled = _.shuffle(this.props.deck);
 
           this.state = {
-            deck : shuffled
+            deck : shuffled,
+            selectPlayer : 'player'
           }
           this.handleDealButton = this.handleDealButton.bind(this);
           this.handleHitButton = this.handleHitButton.bind(this);
           this.handScore = this.handScore.bind(this);
+          this.handlePlayerWagerButton = this.handlePlayerWagerButton.bind(this);
+          this.handleBankerWagerButton = this.handleBankerWagerButton.bind(this);
+          this.handleTieWagerButton = this.handleTieWagerButton.bind(this);
         }
 
         handScore(hand) {
@@ -60,9 +64,6 @@ class Table extends Component {
                 deck    : deck,
                 status  : "playing"
             });
-
-
-
         }
 
         /* function to find the closest number out of given array */
@@ -76,14 +77,14 @@ class Table extends Component {
             var playerHand = this.state.player;
             var bankerHand = this.state.banker;
 
+            var selectedPlayer = this.state.selectPlayer;
+
             var newPlayerscore = this.handScore(playerHand);
             var bankerScore = this.handScore(bankerHand);
 
             var playerDiff = this.findClosestValue(newPlayerscore);
 
             var bankerDiff = this.findClosestValue(bankerScore);
-            console.log('Player score : '+newPlayerscore);
-            console.log('Banker score : '+bankerScore);
 
             var status ;
             if( newPlayerscore === 8 && bankerScore <= 2 ) {
@@ -118,10 +119,9 @@ class Table extends Component {
             }
             // check deck size to see if we need to shuffle a new deck
             if(status === 'draws') {
-                this.setState({
-                    deck :  _.shuffle(this.props.deck)
-                });
-                //this.state.deck = _.shuffle(this.props.deck);
+                    
+                  this.setState( {deck:this.props.deck} );
+                  
                   // we shuffle every time so you don't cheat by checking component state :D
                   var shuffled = _.shuffle(this.state.deck);
                   // player hands card
@@ -129,20 +129,17 @@ class Table extends Component {
                   // banker hands card
                   bankerHand.push(shuffled.pop());
 
-                  newPlayerscore = this.handScore(playerHand);
-                  bankerScore = this.handScore(bankerHand);
+                   newPlayerscore = this.handScore(playerHand);
+                   bankerScore = this.handScore(bankerHand);
 
-                  playerDiff = this.findClosestValue(newPlayerscore);
+                   playerDiff = this.findClosestValue(newPlayerscore);
 
-                  bankerDiff = this.findClosestValue(bankerScore);
+                   bankerDiff = this.findClosestValue(bankerScore);
               }
               else{
-                this.setState({
-                    deck :  _.shuffle(this.props.deck)
-                });
-                //this.state.deck = _.shuffle(this.props.deck);
+                  this.setState( {deck:this.props.deck} );
                 // we shuffle every time so you don't cheat by checking component state :D
-                  shuffled = _.shuffle(this.state.deck);
+                   shuffled = _.shuffle(this.state.deck);
               }
 
               if( playerDiff < bankerDiff ) {
@@ -155,6 +152,19 @@ class Table extends Component {
                 newStatus = "tie";
               }
 
+              if( selectedPlayer === "player" && newStatus === "win" ) {
+                newStatus = "win";
+              }
+              else if( selectedPlayer === "banker" && newStatus === "lose" ) {
+                newStatus = "win";
+              }
+              else if( selectedPlayer === "tie" && newStatus === "tie" ) {
+                newStatus = "win";
+              }
+              else {
+                newStatus = "lose";
+              }
+
             // set the updates
             this.setState({
                 player :  playerHand,
@@ -165,7 +175,24 @@ class Table extends Component {
             });
 
         }
-
+        //  Select who will win
+        handlePlayerWagerButton() {
+            this.setState({
+                selectPlayer : 'player'
+            });
+        }
+        //  Select who will win
+        handleBankerWagerButton() {
+            this.setState({
+                selectPlayer : 'banker'
+            });
+        }
+        //  Select who will win
+        handleTieWagerButton() {
+            this.setState({
+                selectPlayer : 'tie'
+            });
+        }
         /*
 
          lets call for a Hand component for the dealer where we will show the deck of cards,
@@ -185,9 +212,13 @@ class Table extends Component {
                     hit={this.handleHitButton}
                     stand={this.handleStandButton}
                     status={this.state.status}
+                    playerwager={this.handlePlayerWagerButton}
+                    bankerwager={this.handleBankerWagerButton}
+                    tiewager={this.handleTieWagerButton}
+                    selectPlayer={this.state.selectPlayer}
                     />
                     <BankerHand showDeck={true} hand={this.state.banker} />
-                    </div>
+                </div>
             );
         }
 }

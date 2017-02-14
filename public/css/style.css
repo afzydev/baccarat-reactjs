@@ -1,7 +1,9 @@
  body{
      background: url('/img/back.png');
    }
-
+   h3{
+       color:#fff;
+   }
    .hand{
     height:auto;
     overflow: auto;
@@ -23,3 +25,16 @@
    float: left;
 
  }
+ 
+  .price-display {
+    width: 100%;
+    background: #fff;
+    margin-top: 15px;
+    padding: 15px;
+ }
+
+.droppable {
+  background:green;
+  border:'1px solid red'
+}
+

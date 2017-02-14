@@ -35,10 +35,10 @@ class DragDrop extends Component {
         </div>)
     }
     onDrop(data) {
-        var totalBetAmount=parseInt(this.state.betamount) + parseInt(data.betamount);
+        var totalBetAmount=parseInt(this.state.betamount, 10) + parseInt(data.betamount, 10);
 
         this.setState({
-            betamount :  parseInt(totalBetAmount)
+            betamount :  parseInt(totalBetAmount, 10)
         });
         //console.log(this.state.message);
         // => banana 
