@@ -4,7 +4,7 @@
     render() {
           switch(this.props.status) {
               case "playing":
-                  return (<div className="alert alert-info" role="alert">Hit or Stand</div>);
+                  return (<div className="alert alert-info" role="alert">Select your hand to start</div>);
               case "win":
                   return (<div className="alert alert-success" role="alert">Win Win Win</div>);
                   

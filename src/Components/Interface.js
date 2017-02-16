@@ -5,7 +5,7 @@
 
     render() {
         return (
-            <div className='panel interface'>
+            <div>
                 
                 <Outcome status={this.props.status}/>
 
@@ -15,17 +15,23 @@
 
                 </div>
                 <br/>
-                
-                <h3>Who will win ? </h3>
+                <div className="col-sm-12">
+                    <div className="col-sm-4">
+                        <h3>Please select your hand</h3>
+                    </div>
+                    <div className="col-sm-8">
+                    <span className="select-player"><h3>{this.props.selectPlayer ? this.props.selectPlayer.toUpperCase()+' SELECTED' : ''}</h3></span>
+                    </div>
+                </div>
                 <div className="btn-group btn-group-justified" role="group" aria-label="score">
                   <div className="btn-group" role="group">
-                      <button onClick={this.props.playerwager} type="button" className="btn btn-default">Player</button>
+                      <button onClick={this.props.playerwager} type="button" className={this.props.playerBtn}>Player</button>
                   </div>
                   <div className="btn-group" role="group">
-                      <button onClick={this.props.tiewager} type="button" className="btn btn-default">Tie</button>
+                      <button onClick={this.props.tiewager} type="button" className={this.props.tieBtn}>Tie</button>
                   </div>
                   <div className="btn-group" role="group">
-                      <button onClick={this.props.bankerwager} type="button" className="btn btn-default">Banker</button>
+                      <button onClick={this.props.bankerwager} type="button" className={this.props.bankerBtn}>Banker</button>
                   </div>
                 </div>
                 <br/>
@@ -33,11 +39,9 @@
                 <div className="btn-group btn-group-justified" role="group" aria-label="game">
                     <div className="btn-group" role="group">
                         {/* received as props to the Interface component the handleDeal function is now bound to the onClick event */}
-                        <button onClick={this.props.deal} type="button" className="btn btn-info">Deal</button>
+                        <button onClick={this.props.deal} type="button" className="btn btn-success">Deal</button>
                     </div>
-                    <div className="btn-group" role="group">
-                        <button onClick={this.props.hit} type="button" className="btn btn-success">Hit</button>
-                    </div>
+                    
                 </div>
                 <div className="price-display">
                     <DragDrop />

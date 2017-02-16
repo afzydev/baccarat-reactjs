@@ -3,6 +3,7 @@
    }
    h3{
        color:#fff;
+       font-size:30px;
    }
    .hand{
     height:auto;
@@ -26,15 +27,84 @@
 
  }
  
+   .all-cards{
+   display: inline-block;
+   height: 185px;
+   width: 50px;
+   float: left;
+   margin-right: -46px;
+ }
+ 
   .price-display {
     width: 100%;
     background: #fff;
     margin-top: 15px;
-    padding: 15px;
+    padding: 10px;
  }
 
 .droppable {
-  background:green;
-  border:'1px solid red'
+    background: #428bca;
+    height: 50px;
+    color: #fff;
+    text-align:center;
+}
+
+.drop-price{
+    border: 2px dotted #ccc;
+    height: 55px;
+    border-radius: 10px;
+}
+.place-bet{
+    margin-left: 15%;
+    font-size: 30px;
+}
+.select-player{
+    text-align:right;
+}
+.select-player h3{
+    color:#fbff00;
+}
+.dropPriceDrag {
+    border: 2px dotted #000;
+    height: 55px;
+    border-radius: 10px;
+    -webkit-box-shadow: -8px 10px 0px -5px rgba(201,197,201,1);
+    -moz-box-shadow: -8px 10px 0px -5px rgba(201,197,201,1);
+    box-shadow: -8px 10px 0px -5px rgba(201,197,201,1);
+}
+
+.one-chip{
+    background: url('/img/one-chip.png') no-repeat;
+    height: 50px;
+}
+.ten-chip{
+    background: url('/img/ten-chip.png') no-repeat;
+    height: 50px;
+}
+.twenty-chip{
+    background: url('/img/twenty-chip.png') no-repeat;
+    height: 50px;
+}
+.fifty-chip{
+    background: url('/img/fifty-chip.png') no-repeat;
+    height: 50px;
+}
+.hundred-chip{
+    background: url('/img/hundred-chip.png') no-repeat;
+    height: 50px;
+}
+
+.five-hundred-chip{
+    background: url('/img/five-hundred-chip.png') no-repeat;
+    height: 50px;
+}
+
+.thousand-chip{
+    background: url('/img/thousand-chip.png') no-repeat;
+    height: 50px;
+}
+
+.money-div {
+    margin-top: 15px;
 }
 

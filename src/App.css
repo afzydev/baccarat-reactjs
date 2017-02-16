@@ -20,7 +20,6 @@
 
 .example-enter {
   opacity: 0.01;
-  transform: rotateX(180deg);
   position: absolute;
   animation: roll 2s infinite;
   transform: rotate(30deg);

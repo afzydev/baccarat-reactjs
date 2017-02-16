@@ -6,12 +6,13 @@
     "react-scripts": "0.8.5"
   },
   "dependencies": {
+    "aphrodite": "^1.1.0",
     "lodash": "^4.17.4",
+    "radium": "^0.18.1",
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-drag-and-drop": "^2.3.0",
-    "save": "^2.3.0"
+    "react-drag-and-drop": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
