@@ -1,5 +1,5 @@
   import React, { Component } from 'react';
-  import Card from './Card';
+  import Card from '../Card/Card';
   import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
   class BankerHand extends Component {
 

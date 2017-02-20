@@ -1,5 +1,5 @@
   import React, { Component } from 'react';
-  import Table from './Components/Table';
+  import Table from './Components/Table/Table';
   import _ from 'lodash';
   import './App.css';
   class App extends Component {

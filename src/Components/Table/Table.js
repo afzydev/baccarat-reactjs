@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
-import Hand from './Hand';
-import BankerHand from './BankerHand';
-import Interface from './Interface';
+import Hand from '../Hand/Hand';
+import BankerHand from '../BankerHand/BankerHand';
+import Interface from '../Interface/Interface';
 import { Draggable } from 'react-drag-and-drop';
 class Table extends Component {
 

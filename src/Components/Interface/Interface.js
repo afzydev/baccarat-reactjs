@@ -1,6 +1,6 @@
   import React, { Component } from 'react';
-  import Outcome from './Outcome';
-  import DragDrop from './DragDrop';
+  import Outcome from '../Outcome/Outcome';
+  import DragDrop from '../DragDrop/DragDrop';
   class Interface extends Component {
 
     render() {
